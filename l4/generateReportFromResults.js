@@ -4,35 +4,33 @@ let generateFeedback = (passed, results) => {
   const feedback = results.map((result) => {
     const checkForFailure = result["name"].includes("Failure");
     const passStatus = checkForFailure ? "failed" : "passed";
-    let errorMessages = [];
+    
     const assertionResults = result["assertionResults"]
       .map((item) => {
         let status = item["status"];
         let title = item["title"];
         let statusSymbol = status === "passed" ? "✓" : "✗";
         if (status !== passStatus) {
-          errorMessages = errorMessages.concat(item["failureMessages"]);
+          item["failureMessages"].forEach((failureMessage) => {
+            console.log(`Error in test: ${title}`);
+            console.log(failureMessage);
+          });
         }
         return `${statusSymbol} ${title}`;
       })
       .join("\n\n");
-    let errorMessage = errorMessages.join("\n\n");
 
     if (checkForFailure) {
       return (
         "Checking with wrong implementation, the tests should fail" +
         "\n\n" +
-        assertionResults +
-        "\n\n" +
-        errorMessage
+        assertionResults
       );
     }
     return (
       "Checking with actual implementation, the tests should pass" +
       "\n\n" +
-      assertionResults +
-      "\n\n" +
-      errorMessage
+      assertionResults
     );
   });
 
