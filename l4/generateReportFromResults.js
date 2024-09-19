@@ -4,7 +4,7 @@ let generateFeedback = (passed, results) => {
   const feedback = results.map((result) => {
     const checkForFailure = result["name"].includes("Failure");
     const passStatus = checkForFailure ? "failed" : "passed";
-    let errorMessages = [];
+    
     const assertionResults = result["assertionResults"]
       .map((item) => {
         let status = item["status"];
@@ -19,7 +19,6 @@ let generateFeedback = (passed, results) => {
         return `${statusSymbol} ${title}`;
       })
       .join("\n\n");
-    let errorMessage = errorMessages.join("\n\n");
 
     if (checkForFailure) {
       return (
