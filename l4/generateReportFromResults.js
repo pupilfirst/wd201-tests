@@ -11,7 +11,10 @@ let generateFeedback = (passed, results) => {
         let title = item["title"];
         let statusSymbol = status === "passed" ? "✓" : "✗";
         if (status !== passStatus) {
-          errorMessages = errorMessages.concat(item["failureMessages"]);
+          item["failureMessages"].forEach((failureMessage) => {
+            console.log(`Error in test: ${title}`);
+            console.log(failureMessage);
+          });
         }
         return `${statusSymbol} ${title}`;
       })
@@ -22,17 +25,13 @@ let generateFeedback = (passed, results) => {
       return (
         "Checking with wrong implementation, the tests should fail" +
         "\n\n" +
-        assertionResults +
-        "\n\n" +
-        errorMessage
+        assertionResults
       );
     }
     return (
       "Checking with actual implementation, the tests should pass" +
       "\n\n" +
-      assertionResults +
-      "\n\n" +
-      errorMessage
+      assertionResults
     );
   });
 
