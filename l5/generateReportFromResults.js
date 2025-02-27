@@ -16,7 +16,7 @@ let generateFeedback = (passed, results) => {
 
   const suffix = passed
     ? "See you in the next level!"
-    : "Please make sure that you go through the assignment instructions. If you're having trouble with this assignment, please reach out to the Pupilfirst team on the Web Development community.";
+    : "Please make sure that you go through the assignment instructions. If you're having trouble with this assignment, carefully review your code for errors and refer to the course materials and provided guidelines.";
 
   const feedback = prefix + "\n\n" + testResults + "\n\n" + suffix;
 
