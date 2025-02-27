@@ -52,7 +52,7 @@ readFile("results.json").then((data) => {
       grade: "skip",
       status: "failure",
       feedback:
-        "We are unable to test your submission - something about it was too different from what we were expecting. Please check the instructions for this task and try again. If you have seen this message more than once, please reach out to Pupilfirst team for support.",
+        "We are unable to test your submission - something about it was too different from what we were expecting. Please check the instructions for this task and try again. If you have seen this message more than once, carefully review your code for errors and refer to the course materials and provided guidelines.",
       report: "Unable to generate report due to missing results.json.",
     });
   }
