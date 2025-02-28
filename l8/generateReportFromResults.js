@@ -15,7 +15,7 @@ let generateFeedback = (passed, results) => {
 
   const suffix = passed
     ? "See you in the next level!"
-    : "Please make sure that you go through the assignment instructions; Our automated tests interacts with your application, checks for the presence of application header, a form with button and input for todo creation and three sections for listing todos. Also ensure that the section titles and order exactly match the project specification.\n\nIf you're having trouble with this assignment, please reach out to the Pupilfirst team on the Web Development community.";
+    : "Please make sure that you go through the assignment instructions; Our automated tests interacts with your application, checks for the presence of application header, a form with button and input for todo creation and three sections for listing todos. Also ensure that the section titles and order exactly match the project specification.\n\nIf you're having trouble with this assignment, carefully review your code for errors and refer to the course materials and provided guidelines.";
 
   const feedback = prefix + "\n\n" + testResults + "\n\n" + suffix;
 
@@ -55,7 +55,7 @@ readFile("results.json").then((data) => {
       grade: "skip",
       status: "failure",
       feedback:
-        "We are unable to test your submission - something about it was too different from what we were expecting. Please check the instructions for this task and try again. If you have seen this message more than once, please reach out to Pupilfirst team for support.",
+        "We are unable to test your submission - something about it was too different from what we were expecting. Please check the instructions for this task and try again. If you have seen this message more than once, carefully review your code for errors and refer to the course materials and provided guidelines.",
       report: "Unable to generate report due to missing results.json.",
     });
   }
